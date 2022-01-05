@@ -10,14 +10,27 @@ onload = async () => {
   for (let i = 400; i <= 600; i++) {
     const img = new Image();    
     try {
-      img.src = `img/${i}.png`;
+      img.src = `img/${i}.png`;      
+      if (!doesFileExist(img.src))
+        continue;
+      
       await waitImageLoad(img);
       imgs.appendChild(img);
     } catch (e) {
-      continue;
     }
   }
 };
+  
+function doesFileExist(urlToFile)
+{
+  var xhr = new XMLHttpRequest();
+  xhr.open('HEAD', urlToFile, false);
+  xhr.send();
+  if (xhr.readyState == 4 && xhr.status == 404 ) {
+      return false;
+  }
+  return true;
+}
 </script>
 
 <div id=imgs></div>
