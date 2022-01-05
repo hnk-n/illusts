@@ -7,14 +7,13 @@
 import { waitImageLoad } from "https://js.sabae.cc/waitImageLoad.js";
 
 onload = async () => {
-  for (let i = 500;; i++) {
+  for (let i = 400; i <= 600; i++) {
     const img = new Image();
     img.src = `img/${i}.png`;
     try {
       await waitImageLoad(img);
       imgs.appendChild(img);
     } catch (e) {
-      break;
     }
   }
 };
