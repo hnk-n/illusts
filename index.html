@@ -1,9 +1,37 @@
-<!DOCTYPE html>
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
 <html>
 <body>
 <h1>hanaka's illusts</h1>
 
-<img src="\illusts\img\500.png">
-<img src="\illusts\img\501.png">
+<script type="module">
+import { waitImageLoad } from "https://js.sabae.cc/waitImageLoad.js";
+
+onload = async () => {
+  for (let i = 500;; i++) {
+    const img = new Image();
+    img.src = `img/${i}.png`;
+    try {
+      await waitImageLoad(img);
+      imgs.appendChild(img);
+    } catch (e) {
+      break;
+    }
+  }
+};
+</script>
+
+<div id=imgs></div>
+
+<style>
+body {
+  text-align: center;
+}
+#imgs {
+}
+img {
+  width: 80vw;
+}
+</style>
+
 </body>
 </html>
