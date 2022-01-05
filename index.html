@@ -14,6 +14,7 @@ onload = async () => {
       await waitImageLoad(img);
       imgs.appendChild(img);
     } catch (e) {
+      continue;
     }
   }
 };
